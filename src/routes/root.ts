@@ -1,5 +1,6 @@
 import { type Request, type Response } from 'express'
 import Route from './route'
+import { apiErrorMsg } from '../middlewares/error-handler'
 
 class RootRoute extends Route {
   constructor () {
@@ -11,9 +12,7 @@ class RootRoute extends Route {
     this.router.get('/',
       (req: Request, res: Response): Record<string, any> => res.send('Here is my home page')
     )
-    this.router.use(
-      (req: Request, res: Response): Record<string, any> => res.send('Page not found.')
-    )
+    this.router.use('/', apiErrorMsg)
   }
 }
 
