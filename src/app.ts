@@ -12,4 +12,4 @@ for (const route of router) {
 
 app.listen(port, () => { console.info(`Server is running on http://localhost:${port}`) })
 
-module.exports = app
+export default app
